@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Marco의 사이트입니다</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- 외부 CSS -->
+    <link rel="stylesheet" type="text/css" href="Content/style/common.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+
+    <!-- jQuery (HTTPS 필수) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Typewriter -->
+    <script src="https://unpkg.com/typewriter-effect@2.3.1/dist/core.js"></script>
+
+    <!-- Particleground -->
+    <script src="Content/js/jquery.particleground.js"></script>
+
+
+    <!-- Custom Script -->
+    <script>
+    $(document).ready(function(){
+
+        /* Home 텍스트 타이핑 효과 */
+        var text = document.getElementById("homeTitle");
+        var typewriter = new Typewriter(text, { loop: true });
+
+        typewriter.typeString('인터넷 프로그래밍')
+                .pauseFor(2500)
+                .deleteAll()
+                .typeString('최종 과제 발표')
+                .pauseFor(2500)
+                .deleteAll()
+                .typeString('저는 누구일까요?')
+                .pauseFor(2500)
+                .deleteChars(6)
+                .typeString('<strong>Marco 입니다!</strong>')
+                .pauseFor(2500)
+                .start();
+
+        /* 스킬 바 애니메이션 */
+        $(window).scroll(function(){
+            $('.skillValue li').each(function(){
+                var size = $(this).data("size");
+                var pos_obj = $(this).offset().top;
+                var window_pos = $(window).scrollTop() + $(window).height();
+
+                if(window_pos > pos_obj){
+                    $(this).addClass("bar_new_ani");
+                    $(this).css("width", size + "%");
+                }
+            });
+        });
+
+        /* Particleground 배경 */
+        $('#particles').particleground({
+            dotColor: '#00FFCB',
+            lineColor: '#31C2A5'
+        });
+
+        $('.intro').css({
+            'margin-top': -($('.intro').height() / 2)
+        });
+    });
+    </script>
+
+</head>
+<body>
+
+    <!-- 메뉴 영역 -->
+    <header>
+        <div class="logo"><a href="#"><h2>Marco Lee</h2></a></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HOME -->
+    <section class="fullpage" id="home">
+        <div id="particles">
+            <div id="intro">
+                <h2 id="homeTitle">이우민 입니다</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="fullpage" id="about">
+        <div class="profile">
+            <h2>기본정보</h2>
+            <div class="imgDiv">
+                <img src="Content/image/person.jpg">
+            </div>
+            <div class="infoDiv">
+                <ul>
+                    <li class="nameTitle">이우민(20215287)</li>
+                    <li><i class="fas fa-home"></i>거주지 : 익산시 신동</li>
+                    <li><i class="fas fa-mobile-alt"></i>연락처 : 010-0000-0000</li>
+                    <li><i class="far fa-envelope"></i>이메일 : marcolee@naver.com</li>
+                    <li><i class="fas fa-blog"></i>블로그 : https://section.blog.naver.com/</li>
+                </ul>
+                <div>
+                    안녕하세요. 원광대학교 창의공과대학 정보통신공학과 재학생입니니다.<br>
+                    백엔드 개발, 네트워크, 임베디드, 로보틱스에 관심있습니다.
+                </div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <h2>보유 SKILL</h2>
+            <ul class="skillName">
+                <li>HTMl</li>
+                <li>CSS</li>
+                <li>javascript</li>
+                <li>C</li>
+                <li>Python</li>
+                <li>JSP</li>
+                <li>영어</li>
+            </ul>
+
+            <ul class="skillValue">
+                <li data-size="85">HTMl</li>
+                <li data-size="100">CSS</li>
+                <li data-size="50">javascript</li>
+                <li data-size="70">C</li>
+                <li data-size="30">Python</li>
+                <li data-size="10">JSP</li>
+                <li data-size="60">영어</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="fullpage" id="portfolio">
+        <h2>PORTFOLIO</h2>
+
+        <div class="project">
+            <div class="imgDiv">
+                <a href="Content/pofol/team01_kiki.pdf" target="_blank">
+                    <img src="Content/image/capstone1.png">
+                </a>
+            </div>
+            <div class="content">
+                <h3>2025-1 캡스톤디자인</h3>
+                <div>HC-SR501 및 ESP-32를 활용한 움직임 감지센서 개발</div>
+                <div class="hashtag">
+                    <ul>
+                        <li># 아두이노</li>
+                        <li># Vercel KV</li>
+                        <li># 적외선 감지</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="project">
+            <div class="imgDiv">
+                <a href="Content/pofol/04_net0design.pdf" target="_blank">
+                    <img src="Content/image/netzero1.png">
+                </a>
+            </div>
+            <div class="content">
+                <h3>2025 Energy UP! 하계 오픈캠퍼스</h3>
+                <div>탄소중립 축제디자인 : Net-Zero 이벤트 가이드라인 제작</div>
+                <div class="hashtag">
+                    <ul>
+                        <li># 에너지 신산업</li>
+                        <li># 전기 안전</li>
+                        <li># 넷제로</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="fullpage" id="contact">
+
+        <div style="display: inline-block; width:50%; float:left; height:100%;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3229.099692655986!2d126.95120491201631!3d35.96898807238099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357015527a316527%3A0x37f3a7800fd9ee31!2z7JuQ6rSR64yA7ZWZ6rWQ!5e0!3m2!1sko!2sgm!4v1764078986281!5m2!1sko!2sgm"
+                style="width:100%; height:99%; border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <form id="sendForm" action="/serverPath" method="post">
+            <div class="contactForm" style="display:inline-block; float:left; width:50%; height:100%;">
+                <h2>문의하기</h2>
+                <div class="inputGroup">
+                    <div><input type="text" id="textName" name="clientName" placeholder="성함을 입력해주세요."></div>
+                    <div><input type="text" id="textTel" name="tel" placeholder="연락처를 입력해주세요. ('-' 제외 숫자만)"></div>
+                    <div><input type="text" id="textEmail" name="email" placeholder="이메일을 입력해주세요."></div>
+                    <div><textarea id="content" name="content" placeholder="문의 내용"></textarea></div>
+                    <button class="btnSend">문의 메일 보내기</button>
+                </div>
+            </div>
+        </form>
+
+        <div style="clear:both;"></div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Copyright ⓒ 2025. Marco Lee. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
